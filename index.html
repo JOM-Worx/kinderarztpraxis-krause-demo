@@ -2,171 +2,219 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Kinderarztpraxis Prenzlauer Berg – Dr. Susann Krause</title>
+  <title>Kinderarztpraxis Dr. Susann Krause – Prenzlauer Berg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kinderarztpraxis Prenzlauer Berg – Dr. Susann Krause. Hausärztliche Versorgung von Kindern und Jugendlichen, Vorsorgeuntersuchungen, Impfungen.">
+  <meta name="description" content="Kinderarztpraxis Dr. Susann Krause in Berlin-Prenzlauer Berg. Hausärztliche Versorgung von Kindern und Jugendlichen, Vorsorgeuntersuchungen und Impfungen.">
+  <!-- A: Favicon using practice logo -->
+  <link rel="icon" type="image/png" href="logo-kinderarztpraxis-krause.png">
+
   <style>
+    /* ========= DESIGN TOKENS ========= */
     :root {
-      --primary: #1d7f8c;
-      --primary-soft: #e7f6f8;
-      --accent: #fbbf5e;
-      --text: #1f2933;
+      --yellow: #f7b731;
+      --yellow-soft: #fff5da;
+      --teal: #199a93;
+      --teal-soft: #e1f2f1;
+      --bg: #fdf8f1;
+      --text: #27313a;
       --muted: #6b7280;
-      --bg: #f8fafc;
       --white: #ffffff;
-      --radius-lg: 16px;
-      --radius-md: 10px;
-      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
-      --max-width: 1040px;
+
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.09);
+      --max-width: 980px;
     }
 
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth; /* B: smooth scrolling */
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background: var(--bg);
+      background: radial-gradient(circle at top, #fffdfa, var(--bg) 45%, #f9f5ec 100%);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ========= LAYOUT ========= */
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.25rem 3rem;
+    }
 
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(248, 250, 252, 0.96);
+      background: rgba(253, 248, 241, 0.96);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
     }
 
     .nav {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0.75rem 1.25rem;
+      padding: 0.5rem 1.25rem 0.75rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.25rem;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    .nav-logo {
+    .nav-left {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      font-weight: 650;
-      letter-spacing: 0.02em;
+      min-width: 0;
     }
 
-    .nav-logo-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #fef3c7 0, #fbbf5e 40%, #f97316 100%);
+    .logo-img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo-text {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow-soft);
-      font-size: 20px;
+      flex-direction: column;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--yellow);
+      text-transform: lowercase;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-      gap: 1rem;
-      font-size: 0.9rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      flex-wrap: nowrap;
+      gap: 0.5rem;
+      margin-left: auto;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
     }
 
     .nav-links a {
-      padding: 0.25rem 0.5rem;
+      padding: 0.25rem 0.65rem;
       border-radius: 999px;
+      white-space: nowrap;
+      color: var(--text);
+      background: transparent;
+      border: 1px solid transparent;
+      flex: 0 0 auto;
     }
 
     .nav-links a:hover {
-      background: #e5f3f5;
+      background: var(--teal-soft);
+      border-color: rgba(25, 154, 147, 0.15);
       text-decoration: none;
     }
 
     .nav-cta {
-      padding: 0.4rem 0.95rem;
-      border-radius: 999px;
-      background: var(--primary);
-      color: var(--white);
-      font-size: 0.9rem;
+      background: var(--teal);
+      color: var(--white) !important;
       font-weight: 600;
-      box-shadow: 0 8px 20px rgba(15, 118, 110, 0.3);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      box-shadow: 0 8px 20px rgba(25, 154, 147, 0.35);
+      flex: 0 0 auto;
     }
 
-    .nav-cta:hover { background: #16626c; }
+    .nav-cta:hover {
+      background: #127872;
+    }
 
     main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
+      padding-top: 1.2rem;
     }
 
-    /* URGENT INFO STRIP */
+    /* ========= INFO STRIP (uses urgent-info.json) ========= */
+
     .info-strip {
-      margin: 1.25rem 0 1.75rem;
-      padding: 0.9rem 1rem;
+      margin: 0 0 1.5rem;
+      padding: 0.75rem 0.9rem;
       border-radius: var(--radius-md);
-      background: #fef3c7;
-      border: 1px solid #f59e0b;
+      background: #fff6d7;
+      border: 1px solid #f4ca64;
       display: flex;
-      gap: 0.75rem;
+      gap: 0.6rem;
       align-items: flex-start;
-      font-size: 0.93rem;
+      font-size: 0.9rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .info-strip-icon {
       margin-top: 0.1rem;
       font-size: 1.1rem;
+      flex-shrink: 0;
     }
 
-    .info-strip strong { font-weight: 650; }
+    .info-strip strong {
+      font-weight: 650;
+    }
 
-    /* HERO */
+    /* ========= HERO ========= */
+
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-      gap: 2.5rem;
-      align-items: center;
-      margin-bottom: 2.75rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+      margin-bottom: 2.2rem;
     }
 
     .hero-text h1 {
-      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      font-size: clamp(1.7rem, 4vw, 2.2rem);
       line-height: 1.15;
-      margin-bottom: 0.75rem;
+      margin: 0 0 0.6rem;
     }
 
     .hero-text p.lead {
-      margin-top: 0;
-      margin-bottom: 1.25rem;
+      margin: 0 0 1rem;
       color: var(--muted);
-      font-size: 0.98rem;
+      font-size: 0.95rem;
     }
 
     .hero-highlight {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.7rem;
+      gap: 0.3rem;
+      padding: 0.18rem 0.6rem;
       border-radius: 999px;
-      background: var(--primary-soft);
-      color: #0f4c5a;
-      font-size: 0.8rem;
-      margin-bottom: 0.8rem;
+      background: var(--teal-soft);
+      color: #075a57;
+      font-size: 0.78rem;
+      margin-bottom: 0.5rem;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
+      gap: 0.7rem;
       margin-bottom: 0.75rem;
     }
 
@@ -174,176 +222,184 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
       border-radius: 999px;
-      padding: 0.6rem 1.15rem;
-      font-size: 0.92rem;
-      font-weight: 600;
       border: none;
       cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
       text-decoration: none;
+      white-space: nowrap;
     }
 
     .btn-primary {
-      background: var(--primary);
+      background: var(--teal);
       color: var(--white);
-      box-shadow: 0 12px 24px rgba(15, 118, 110, 0.3);
+      box-shadow: 0 10px 22px rgba(25, 154, 147, 0.35);
     }
 
-    .btn-primary:hover { background: #16626c; }
+    .btn-primary:hover {
+      background: #127872;
+    }
 
     .btn-ghost {
-      background: transparent;
-      color: var(--primary);
-      border: 1px solid #d1e5e9;
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--teal);
+      border: 1px solid rgba(25, 154, 147, 0.25);
     }
 
     .btn-ghost:hover {
-      background: #e5f3f5;
+      background: var(--teal-soft);
     }
 
     .hero-meta {
       font-size: 0.8rem;
       color: var(--muted);
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      margin-right: 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1rem;
     }
 
     .hero-card {
-      background: radial-gradient(circle at top left, #e0f2fe, #fefce8 45%, #ffffff 80%);
+      background: linear-gradient(145deg, #ffffff 0%, #fef9ea 50%, #e9f4f3 100%);
       border-radius: var(--radius-lg);
-      padding: 1.4rem 1.4rem 1.1rem;
+      padding: 1rem 1rem 0.9rem;
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 0.9rem;
     }
 
     .hero-card h2 {
-      font-size: 1.1rem;
+      font-size: 1.02rem;
       margin: 0 0 0.4rem;
     }
 
     .hero-card p {
-      margin: 0 0 0.75rem;
-      font-size: 0.9rem;
+      margin: 0 0 0.6rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
     }
 
     .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.78rem;
-      padding: 0.25rem 0.6rem;
+      padding: 0.2rem 0.6rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.85);
+      font-size: 0.75rem;
+      background: rgba(255, 255, 255, 0.9);
       border: 1px solid rgba(148, 163, 184, 0.4);
-      margin-right: 0.4rem;
-      margin-top: 0.25rem;
+      color: #475569;
     }
 
-    /* CONTENT SECTIONS */
+    /* ========= GENERIC SECTIONS ========= */
+
     section {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.3rem;
     }
 
     section h2 {
-      font-size: 1.35rem;
-      margin-bottom: 0.25rem;
+      font-size: 1.25rem;
+      margin: 0 0 0.25rem;
     }
 
-    section p.section-intro {
-      margin-top: 0;
-      color: var(--muted);
+    .section-intro {
+      margin: 0 0 0.9rem;
       font-size: 0.9rem;
+      color: var(--muted);
     }
 
     .grid-2 {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
     }
 
     .card {
       background: var(--white);
       border-radius: var(--radius-md);
-      padding: 1rem 1.05rem;
+      padding: 0.9rem 0.95rem;
       box-shadow: var(--shadow-soft);
-      border: 1px solid #e5e7eb;
+      border: 1px solid rgba(203, 213, 225, 0.7);
       font-size: 0.9rem;
+      overflow: hidden;
     }
 
     .card h3 {
-      margin-top: 0;
-      margin-bottom: 0.4rem;
       font-size: 1rem;
+      margin: 0 0 0.4rem;
     }
 
     .muted {
+      font-size: 0.82rem;
       color: var(--muted);
-      font-size: 0.85rem;
     }
 
     .list-compact {
-      margin: 0.25rem 0 0.25rem 1.1rem;
-      padding-left: 0;
+      margin: 0.2rem 0 0.3rem 1.1rem;
+      padding: 0;
     }
 
-    .list-compact li { margin-bottom: 0.15rem; }
+    .list-compact li {
+      margin-bottom: 0.2rem;
+    }
 
-    /* Opening hours */
+    /* ========= TABLES ========= */
+
     .hours-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.9rem;
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
     }
 
     .hours-table th,
     .hours-table td {
       padding: 0.25rem 0.35rem;
       text-align: left;
+      word-wrap: break-word;
     }
 
     .hours-table th {
+      border-bottom: 1px solid #e2e8f0;
       font-weight: 600;
-      border-bottom: 1px solid #e5e7eb;
     }
 
     .hours-table tr:nth-child(even) td {
       background: #f9fafb;
     }
 
-    /* Team / Praxis */
+    /* ========= TEAM / PRACTICE ========= */
+
     .pill {
       display: inline-flex;
       align-items: center;
-      padding: 0.25rem 0.6rem;
+      padding: 0.2rem 0.6rem;
       border-radius: 999px;
-      font-size: 0.8rem;
-      background: var(--primary-soft);
-      color: #0f4c5a;
+      background: var(--yellow-soft);
+      color: #a86600;
+      font-size: 0.78rem;
       margin-bottom: 0.4rem;
     }
 
-    /* Kontakt */
+    /* ========= CONTACT ========= */
+
     .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr);
-      gap: 1.5rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
     }
 
     .contact-details p {
-      margin: 0.1rem 0;
+      margin: 0.15rem 0;
       font-size: 0.9rem;
     }
 
     .contact-details a.tel {
       font-weight: 600;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
+      color: var(--teal);
     }
 
     .map-embed {
@@ -355,18 +411,19 @@
     }
 
     iframe {
-      border: 0;
       width: 100%;
       height: 100%;
+      border: 0;
     }
 
-    /* Footer */
+    /* ========= FOOTER ========= */
+
     footer {
-      border-top: 1px solid #e5e7eb;
-      padding: 1.25rem 1.25rem 2rem;
-      font-size: 0.8rem;
+      border-top: 1px solid rgba(203, 213, 225, 0.9);
+      padding: 1.1rem 1.25rem 1.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
-      background: #f9fafb;
+      background: #faf5eb;
     }
 
     .footer-inner {
@@ -374,58 +431,79 @@
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
-      gap: 1rem;
       flex-wrap: wrap;
+      gap: 0.75rem;
     }
 
     .footer-links {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.7rem;
       flex-wrap: wrap;
     }
 
-    /* Responsive */
-    @media (max-width: 840px) {
+    /* ========= C: SCROLL ANIMATION (IntersectionObserver) ========= */
+
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    }
+
+    [data-animate].in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========= RESPONSIVE ========= */
+
+    @media (min-width: 720px) {
       .hero {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+        align-items: center;
       }
-      .hero-card {
-        order: -1;
+
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
       .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.05fr);
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 599px) {
       .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav-links {
-        width: 100%;
-        justify-content: space-between;
-      }
-      main {
         padding-inline: 1rem;
       }
-      .hero {
-        gap: 1.75rem;
+
+      .logo-img {
+        height: 38px;
+      }
+
+      .page {
+        padding-inline: 1rem;
+      }
+
+      .hero-card {
+        padding: 0.9rem 0.85rem 0.8rem;
       }
     }
   </style>
 </head>
 <body>
-
 <header>
   <div class="nav">
-    <div class="nav-logo">
-      <div class="nav-logo-icon" aria-hidden="true">👶</div>
-      <div>
-        Kinderarztpraxis<br>
-        Prenzlauer Berg
+    <div class="nav-left">
+      <!-- Official logo -->
+      <img src="logo-kinderarztpraxis-krause.png"
+           alt="Logo Kinderarztpraxis Dr. Susann Krause"
+           class="logo-img">
+      <div class="logo-text" aria-label="Kinderarztpraxis Dr. Susann Krause">
+        <span>kinderarztpraxis</span>
+        <span>dr. susann krause</span>
       </div>
     </div>
+
     <nav class="nav-links" aria-label="Hauptnavigation">
       <a href="#zeiten">Sprechzeiten</a>
       <a href="#leistungen">Leistungen</a>
@@ -439,223 +517,237 @@
   </div>
 </header>
 
-<main>
+<div class="page">
 
-  <!-- AKTUELLE HINWEISE -->
-  <section class="info-strip" aria-label="Aktuelle Hinweise">
+  <!-- C: URGENT INFO is filled from urgent-info.json and hidden by default -->
+  <section id="urgent-info" class="info-strip" aria-label="Aktuelle Hinweise" hidden>
     <div class="info-strip-icon" aria-hidden="true">⚠️</div>
-    <div>
-      <p>
-        <strong>Aktuell:</strong>
-        Am <strong>Freitag, 15. November</strong> bleibt die Praxis nachmittags geschlossen.
-        In dringenden Notfällen wenden Sie sich bitte an den <strong>kassenärztlichen Bereitschaftsdienst 116 117</strong>.
-      </p>
-    </div>
+    <div class="info-strip-content"></div>
   </section>
 
-  <section class="hero" id="top">
-    <div class="hero-text">
-      <div class="hero-highlight">
-        🩺 Kinder‑ und Jugendmedizin in Prenzlauer Berg
-      </div>
-      <h1>Herzlich willkommen in der Kinderarztpraxis von Dr. Susann Krause</h1>
-      <p class="lead">
-        Wir bieten eine umfassende hausärztliche Betreuung Ihrer Kinder – mit Zeit, Ruhe und einer kindgerechten Atmosphäre.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://www.doctolib.de" target="_blank" rel="noopener">
-          <span>Online Termin buchen</span> <span aria-hidden="true">↗</span>
-        </a>
-        <a class="btn btn-ghost" href="#zeiten">Sprechzeiten &amp; Kontakt</a>
-      </div>
-      <div class="hero-meta">
-        <span>📍 Lychener Str. 56, 10437 Berlin</span>
-        <span>🚆 Nähe U Eberswalder Straße</span>
-      </div>
-    </div>
-
-    <aside class="hero-card" aria-label="Wichtige Praxisinfos">
-      <h2>Sprechzeiten &amp; Kontakt</h2>
-      <p>
-        Bitte vereinbaren Sie für alle Vorstellungen Ihres Kindes (Akutsprechstunde, Vorsorgeuntersuchungen und Impfungen) vorab einen Termin.
-      </p>
-      <p>
-        <strong>Telefon:</strong> <a href="tel:+493043659865" class="tel">030&nbsp;–&nbsp;436 598 65</a><br>
-        <strong>E‑Mail:</strong> <a href="mailto:info@kinderarztpraxis‑krause.de">info@kinderarztpraxis‑krause.de</a>
-      </p>
-      <div>
-        <span class="tag">Akut‑ und Terminsprechstunde</span>
-        <span class="tag">Vorsorgen & Impfungen</span>
-        <span class="tag">Hausärztliche Betreuung</span>
-      </div>
-    </aside>
-  </section>
-
-  <section id="zeiten">
-    <h2>Sprechzeiten</h2>
-    <p class="section-intro">
-      Die Sprechzeiten können bei Urlaub oder Krankheit abweichen – aktuelle Änderungen finden Sie oben im gelben Hinweisfeld.
-    </p>
-
-    <div class="grid-2">
-      <div class="card">
-        <h3>Reguläre Öffnungszeiten</h3>
-        <table class="hours-table" aria-label="Sprechzeiten">
-          <thead>
-            <tr><th>Tag</th><th>Sprechstunde</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Montag</td><td>08:00 – 12:00 &nbsp;|&nbsp; 14:00 – 18:00</td></tr>
-            <tr><td>Dienstag</td><td>08:00 – 12:00 &nbsp;|&nbsp; 14:00 – 18:00</td></tr>
-            <tr><td>Mittwoch</td><td>08:00 – 12:00</td></tr>
-            <tr><td>Donnerstag</td><td>08:00 – 12:00 &nbsp;|&nbsp; 14:00 – 18:00</td></tr>
-            <tr><td>Freitag</td><td>08:00 – 12:00</td></tr>
-          </tbody>
-        </table>
-        <p class="muted">
-          Bitte haben Sie Verständnis, daß wir keine Patienten aus anderen Praxen versorgen können, außer die Vertretung wurde mit uns abgesprochen.
+  <main>
+    <section class="hero" id="top" data-animate>
+      <div class="hero-text">
+        <div class="hero-highlight">
+          🩺 Kinder- &amp; Jugendmedizin in Berlin-Prenzlauer Berg
+        </div>
+        <h1>Willkommen in der Kinderarztpraxis von Dr. Susann Krause</h1>
+        <p class="lead">
+          Wir begleiten Ihr Kind vom Neugeborenenalter bis ins Jugendalter – mit Zeit, Ruhe
+          und einer freundlichen Atmosphäre für kleine und große Patient:innen.
         </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://www.doctolib.de" target="_blank" rel="noopener">
+            Online Termin buchen ↗
+          </a>
+          <a class="btn btn-ghost" href="#zeiten">Sprechzeiten &amp; Kontakt</a>
+        </div>
+
+        <div class="hero-meta">
+          <span>📍 Lychener Str. 56, 10437 Berlin</span>
+          <span>🚆 Nähe U Eberswalder Straße</span>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>Wichtige Hinweise</h3>
-        <ul class="list-compact">
-          <li>Für alle Vorstellungen Ihres Kindes – Akutsprechstunde, Vorsorgeuntersuchungen und Impfungen – bitten wir um Terminvereinbarung.</li>
-          <li>Bitte bringen Sie zur jeder Vorstellung die Krankenkassenkarte Ihres Kindes mit.</li>
-          <li>Zu den Vorsorgeuntersuchungen: Krankenkassenkarte, <strong>gelbes Heft</strong> und <strong>Impfausweis</strong> mitbringen.</li>
-          <li>Kinder mit vermutetem infektiösem Hautausschlag melden Sie sich bitte in der Praxis durch zweimaliges Klingeln an.</li>
-          <li>Kinderwagen sowie Lauf‑ &amp; Fahrräder können nicht mit in die Praxis gebracht werden – bitte im Hausflur sichern.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="leistungen">
-    <h2>Leistungen</h2>
-    <p class="section-intro">
-      Unsere Leistungen im Detail:
-    </p>
-
-    <div class="grid-2">
-      <div class="card">
-        <h3>Hausärztliche und stationäre Versorgung</h3>
-        <ul class="list-compact">
-          <li>Behandlung akuter und chronischer Erkrankungen bei Kindern und Jugendlichen.</li>
-          <li>Notfall‑ und Wundversorgung.</li>
-          <li>Laboruntersuchungen.</li>
-          <li>Allergietestung.</li>
-          <li>Ernährungs‑ und Stillberatung.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Vorsorge & Impfungen</h3>
-        <ul class="list-compact">
-          <li>Kinder‑ und Jugendvorsorge (U1‑U9 sowie J1).</li>
-          <li>Zusätzliche Vorsorgeuntersuchungen (U10, U11, J2).</li>
-          <li>Impfberatung und Impfungen.</li>
-          <li>Hör‑, Seh‑‑ und Sprachtest.</li>
-          <li>Reisemedizinische Beratung &amp; Reiseimpfungen.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="team">
-    <h2>Team</h2>
-    <p class="section-intro">
-      Ein erfahrenes und freundliches Team sorgt dafür, dass Sie und Ihr Kind sich bei uns gut aufgehoben fühlen.
-    </p>
-
-    <div class="grid-2">
-      <div class="card">
-        <span class="pill">Fachärztin für Kinder‑ und Jugendmedizin</span>
-        <h3>Dr. Susann Krause</h3>
+      <aside class="hero-card" aria-label="Wichtige Praxisinfos" data-animate>
+        <h2>Sprechzeiten &amp; Kontakt</h2>
         <p>
-          In unserer Praxis betreue ich Kinder und Jugendliche vom Neugeborenenalter bis zum 18. Lebensjahr. Ein wertschätzender Umgang, kindgerechte Untersuchungen und ein beruhigendes Umfeld stehen im Mittelpunkt.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Praxis‑Team</h3>
-        <p>
-          Unser Praxis‑Team ist Ihr erster Ansprechpartner bei Terminvergabe und organisatorischen Fragen. Wir legen großen Wert auf eine herzliche Atmosphäre und effizienten Ablauf.
-        </p>
-        <p class="muted">
-          (Namen und Fotos können bei Bedarf ergänzt werden.)
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="praxis">
-    <h2>Die Praxis</h2>
-    <p class="section-intro">
-      Unsere Praxisräume in der Lychener Straße sind gut mit öffentlichen Verkehrsmitteln erreichbar. Wir möchten, dass Ihr Besuch so angenehm wie möglich ist.
-    </p>
-
-    <div class="grid-2">
-      <div class="card">
-        <h3>Vor Ihrem Besuch</h3>
-        <ul class="list-compact">
-          <li>Bitte bringen Sie zur jeder Vorstellung die Krankenkassenkarte Ihres Kindes mit.</li>
-          <li>Zu Vorsorgeuntersuchungen bitte Krankenkassenkarte, <strong>gelbes Heft</strong> und <strong>Impfausweis</strong> mitbringen.</li>
-          <li>Kinder mit vermutetem infektiösem Hautausschlag melden Sie sich bitte durch zweimaliges Klingeln an der Praxis an.</li>
-          <li>Kinderwagen sowie Lauf-/Fahrräder dürfen nicht mit in die Praxis genommen werden – bitte im Hausflur sichern.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Anfahrt</h3>
-        <p>
-          Lychener Str. 56<br>
-          10437 Berlin – Prenzlauer Berg
-        </p>
-        <p class="muted">
-          Öffentliche Verkehrsmittel (z. B. U2 – Eberswalder Straße, M10, M1) sind gut erreichbar.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="kontakt">
-    <h2>Kontakt &amp; Terminvergabe</h2>
-    <p class="section-intro">
-      Vereinbaren Sie Ihren Termin online über Doctolib oder telefonisch über unser Praxisteam.
-    </p>
-
-    <div class="contact-grid">
-      <div class="contact-details">
-        <p><strong>Kinderarztpraxis Prenzlauer Berg – Dr. Susann Krause</strong></p>
-        <p>
-          Lychener Str. 56<br>
-          10437 Berlin – Prenzlauer Berg
+          Bitte vereinbaren Sie für alle Vorstellungen Ihres Kindes
+          (Akutsprechstunde, Vorsorgeuntersuchungen und Impfungen) vorab einen Termin.
         </p>
         <p>
           <strong>Telefon:</strong>
-          <a href="tel:+493043659865" class="tel">030 – 436 598 65</a><br>
-          <strong>Fax:</strong> 030 – 436 598 66<br>
-          <strong>E‑Mail:</strong> <a href="mailto:info@kinderarztpraxis‑krause.de">info@kinderarztpraxis‑krause.de</a>
+          <a href="tel:+493043659865" class="tel">030&nbsp;436&nbsp;598&nbsp;65</a><br>
+          <strong>E-Mail:</strong>
+          <a href="mailto:info@kinderarztpraxis-krause.de">info@kinderarztpraxis-krause.de</a>
         </p>
-        <p>
-          <a class="btn btn-primary" href="https://www.doctolib.de" target="_blank" rel="noopener">
-            Termin online buchen
-          </a>
-        </p>
-        <p class="muted">
-          Bitte sagen Sie Termine rechtzeitig ab, wenn Sie diese nicht wahrnehmen können, damit wir die Zeit für andere Familien vergeben können.
-        </p>
-      </div>
-      <div class="map-embed" aria-label="Praxisstandort auf Karte">
-        <!-- Google‑Maps‑Embed kann hier eingefügt werden -->
-      </div>
-    </div>
-  </section>
+        <div class="tag-row">
+          <span class="tag">Akut- und Terminsprechstunde</span>
+          <span class="tag">Vorsorgen &amp; Impfungen</span>
+          <span class="tag">Hausärztliche Betreuung</span>
+        </div>
+      </aside>
+    </section>
 
-</main>
+    <section id="zeiten" data-animate>
+      <h2>Sprechzeiten</h2>
+      <p class="section-intro">
+        Die Sprechzeiten können bei Urlaub oder Krankheit abweichen – aktuelle Änderungen
+        finden Sie oben im gelben Hinweisfeld.
+      </p>
+
+      <div class="grid-2">
+        <div class="card" data-animate>
+          <h3>Reguläre Öffnungszeiten</h3>
+          <table class="hours-table" aria-label="Sprechzeiten">
+            <thead>
+            <tr><th>Tag</th><th>Sprechstunde</th></tr>
+            </thead>
+            <tbody>
+            <tr><td>Montag</td><td>08:00 – 12:00 &nbsp;|&nbsp; 14:00 – 18:00</td></tr>
+            <tr><td>Dienstag</td><td>08:00 – 12:00 &nbsp;|&nbsp; 14:00 – 18:00</td></tr>
+            <tr><td>Mittwoch</td><td>08:00 – 12:00</td></tr>
+            <tr><td>Donnerstag</td><td>08:00 – 12:00 &nbsp;|&nbsp; 14:00 – 18:00</td></tr>
+            <tr><td>Freitag</td><td>08:00 – 12:00</td></tr>
+            </tbody>
+          </table>
+          <p class="muted">
+            Bitte haben Sie Verständnis, dass wir keine Patienten aus anderen Praxen versorgen können,
+            außer die Vertretung wurde mit uns abgesprochen.
+          </p>
+        </div>
+
+        <div class="card" data-animate>
+          <h3>Wichtige Hinweise</h3>
+          <ul class="list-compact">
+            <li>Für alle Vorstellungen Ihres Kindes – Akutsprechstunde, Vorsorgeuntersuchungen und Impfungen – bitten wir um Terminvereinbarung.</li>
+            <li>Bitte bringen Sie zur jeder Vorstellung die Krankenkassenkarte Ihres Kindes mit.</li>
+            <li>Zu Vorsorgeuntersuchungen bitte Krankenkassenkarte, <strong>gelbes Heft</strong> und <strong>Impfausweis</strong> mitbringen.</li>
+            <li>Kinder mit vermutetem infektiösem Hautausschlag melden Sie sich bitte in der Praxis durch zweimaliges Klingeln an.</li>
+            <li>Kinderwagen sowie Lauf- &amp; Fahrräder können nicht mit in die Praxis gebracht werden – bitte im Hausflur sichern.</li>
+          </ul>
+          <p class="muted">
+            In lebensbedrohlichen Notfällen wählen Sie bitte sofort den Notruf <strong>112</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="leistungen" data-animate>
+      <h2>Leistungen</h2>
+      <p class="section-intro">
+        Wir bieten eine umfassende hausärztliche Betreuung Ihres Kindes – von der Vorsorge
+        bis zur Behandlung akuter und chronischer Erkrankungen.
+      </p>
+
+      <div class="grid-2">
+        <div class="card" data-animate>
+          <h3>Hausärztliche Versorgung</h3>
+          <ul class="list-compact">
+            <li>Behandlung akuter und chronischer Erkrankungen bei Kindern und Jugendlichen</li>
+            <li>Notfall- und Wundversorgung</li>
+            <li>Laboruntersuchungen</li>
+            <li>Allergietestung</li>
+            <li>Ernährungs- und Stillberatung</li>
+          </ul>
+        </div>
+        <div class="card" data-animate>
+          <h3>Vorsorge &amp; Impfungen</h3>
+          <ul class="list-compact">
+            <li>Kinder- und Jugendvorsorge (U-Untersuchungen, J1)</li>
+            <li>Zusätzliche Vorsorgeuntersuchungen (z.B. U10, U11, J2)</li>
+            <li>Impfberatung und Durchführung von Impfungen</li>
+            <li>Hör-, Seh- und Sprachtests</li>
+            <li>Reisemedizinische Beratung &amp; Reiseimpfungen</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" data-animate>
+      <h2>Team</h2>
+      <p class="section-intro">
+        Ein erfahrenes und freundliches Team sorgt dafür, dass Sie und Ihr Kind sich bei uns gut aufgehoben fühlen.
+      </p>
+
+      <div class="grid-2">
+        <div class="card" data-animate>
+          <span class="pill">Fachärztin für Kinder- und Jugendmedizin</span>
+          <h3>Dr. Susann Krause</h3>
+          <p>
+            Dr. Krause betreut Kinder und Jugendliche vom Neugeborenenalter bis zum 18. Lebensjahr.
+            Ein wertschätzender Umgang, Ruhe und kindgerechte Untersuchungen stehen im Mittelpunkt.
+          </p>
+        </div>
+        <div class="card" data-animate>
+          <h3>Praxis-Team</h3>
+          <p>
+            Unser Praxis-Team unterstützt Sie bei der Terminvergabe, beantwortet organisatorische Fragen
+            und sorgt für einen reibungslosen Ablauf in der Sprechstunde.
+          </p>
+          <p class="muted">
+            Namen und Fotos des Teams können hier bei Bedarf ergänzt werden.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="praxis" data-animate>
+      <h2>Die Praxis</h2>
+      <p class="section-intro">
+        Unsere Praxisräume in der Lychener Straße sind gut mit öffentlichen Verkehrsmitteln erreichbar.
+        Wir möchten, dass Ihr Besuch so angenehm wie möglich ist.
+      </p>
+
+      <div class="grid-2">
+        <div class="card" data-animate>
+          <h3>Vor Ihrem Besuch</h3>
+          <ul class="list-compact">
+            <li>Bitte bringen Sie zur jeder Vorstellung die Krankenkassenkarte Ihres Kindes mit.</li>
+            <li>Zu Vorsorgeuntersuchungen bitte Krankenkassenkarte, gelbes Heft und Impfausweis mitbringen.</li>
+            <li>Kinder mit vermutetem infektiösem Hautausschlag bitte durch zweimaliges Klingeln anmelden.</li>
+            <li>Kinderwagen sowie Lauf- und Fahrräder können nicht mit in die Praxis genommen werden – bitte im Hausflur sichern.</li>
+          </ul>
+        </div>
+        <div class="card" data-animate>
+          <h3>Anfahrt</h3>
+          <p>
+            Lychener Str. 56<br>
+            10437 Berlin – Prenzlauer Berg
+          </p>
+          <p class="muted">
+            Öffentliche Verkehrsmittel: z.B. U2 (Eberswalder Straße), M10, M1.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" data-animate>
+      <h2>Kontakt &amp; Terminvergabe</h2>
+      <p class="section-intro">
+        Vereinbaren Sie Termine am besten online über Doctolib oder telefonisch über unser Praxisteam.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-details" data-animate>
+          <p><strong>Kinderarztpraxis Dr. Susann Krause</strong></p>
+          <p>
+            Lychener Str. 56<br>
+            10437 Berlin – Prenzlauer Berg
+          </p>
+          <p>
+            <strong>Telefon:</strong>
+            <a href="tel:+493043659865" class="tel">030&nbsp;436&nbsp;598&nbsp;65</a><br>
+            <strong>Fax:</strong> 030&nbsp;436&nbsp;598&nbsp;66<br>
+            <strong>E-Mail:</strong>
+            <a href="mailto:info@kinderarztpraxis-krause.de">info@kinderarztpraxis-krause.de</a>
+          </p>
+          <p>
+            <a class="btn btn-primary" href="https://www.doctolib.de" target="_blank" rel="noopener">
+              Termin online buchen
+            </a>
+          </p>
+          <p class="muted">
+            Bitte sagen Sie Termine rechtzeitig ab, wenn Sie diese nicht wahrnehmen können,
+            damit wir die Zeit an andere Familien vergeben können.
+          </p>
+        </div>
+
+        <div class="map-embed" aria-label="Praxisstandort auf Karte" data-animate>
+          <!-- Echten Google-Maps-Embed-Code kann man hier einfügen -->
+          <!--
+          <iframe src="..."></iframe>
+          -->
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
 
 <footer>
   <div class="footer-inner">
-    <div>
-      © <span id="year"></span> Kinderarztpraxis Prenzlauer Berg – Dr. Susann Krause
-    </div>
+    <div>© <span id="year"></span> Kinderarztpraxis Dr. Susann Krause</div>
     <div class="footer-links">
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
@@ -664,8 +756,55 @@
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  // Footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
 
+  // C: Animate sections on scroll
+  const animateEls = document.querySelectorAll("[data-animate]");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    animateEls.forEach((el) => observer.observe(el));
+  } else {
+    // Fallback: show all
+    animateEls.forEach((el) => el.classList.add("in-view"));
+  }
+
+  // C: Load urgent info from urgent-info.json
+  (function loadUrgentInfo() {
+    const section = document.getElementById("urgent-info");
+    if (!section) return;
+
+    fetch("urgent-info.json", { cache: "no-store" })
+      .then((resp) => resp.ok ? resp.json() : null)
+      .then((data) => {
+        if (!data || data.active === false || !data.message) return;
+
+        const iconEl = section.querySelector(".info-strip-icon");
+        const contentEl = section.querySelector(".info-strip-content");
+
+        iconEl.textContent = data.icon || "⚠️";
+
+        const title = data.title || "Aktuell";
+        // message can contain simple text – we escape angle brackets to prevent HTML
+        const safeMessage = String(data.message)
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+
+        contentEl.innerHTML = `<p><strong>${title}:</strong> ${safeMessage}</p>`;
+        section.hidden = false;
+      })
+      .catch(() => {
+        // silently ignore if JSON not reachable
+      });
+  })();
+</script>
 </body>
 </html>

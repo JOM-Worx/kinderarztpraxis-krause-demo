@@ -1,13 +1,137 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
- <meta charset="UTF-8">
- <title>Impressum – Kinderarztpraxis Prenzlauer Berg</title>
- <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Impressum – Kinderarztpraxis Dr. Susann Krause</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="logo-kinderarztpraxis-krause.png">
+  <style>
+    :root {
+      --yellow: #f7b731;
+      --teal: #199a93;
+      --bg: #faf5eb;
+      --text: #27313a;
+      --muted: #6b7280;
+      --white: #ffffff;
+      --max-width: 900px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; padding: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0.75rem; width: fit-content;
+    }
+    .logo img { height: 42px; }
+    .logo-text {
+      color: var(--yellow);
+      font-weight: 600;
+      text-transform: lowercase;
+      font-size: 0.95rem;
+      line-height: 1.18;
+    }
+    .container {
+      max-width: var(--max-width);
+      margin: 2.2rem auto;
+      padding: 0 1.25rem 2.5rem;
+    }
+    h1 { font-size: 1.7rem; margin-bottom: 1rem; }
+    h2 { font-size: 1.1rem; margin-top: 1.4rem; }
+    p, li { font-size: 0.95rem; line-height: 1.55; }
+    ul { padding-left: 1.2rem; }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      padding: 1.4rem 1.25rem 2.2rem;
+      border-top: 1px solid rgba(148,163,184,.35);
+      font-size: 0.82rem;
+      background: var(--white);
+      color: var(--muted);
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .footer-links { display: flex; gap: 0.75rem; }
+  </style>
 </head>
 <body>
- <h1>Impressum</h1>
- <p>Hier steht das Impressum. Bitte fügen Sie hier Ihre rechtlichen Angaben gemäß §5 TMG ein.</p>
- <p><a href="index.html">Zurück zur Startseite</a></p>
+
+<header>
+  <a href="index.html" class="logo">
+    <img src="logo-kinderarztpraxis-krause.png" alt="Logo Kinderarztpraxis Dr. Susann Krause">
+    <div class="logo-text">
+      <span>kinderarztpraxis</span><br>
+      <span>dr. susann krause</span>
+    </div>
+  </a>
+</header>
+
+<div class="container">
+  <h1>Impressum</h1>
+
+  <h2>Angaben gemäß § 5 TMG</h2>
+  <p>
+    Kinderarztpraxis Dr. Susann Krause<br>
+    Lychener Str. 56<br>
+    10437 Berlin<br>
+    Tel: 030&nbsp;436&nbsp;598&nbsp;65<br>
+    Fax: 030&nbsp;436&nbsp;598&nbsp;66<br>
+    E-Mail: <a href="mailto:info@kinderarztpraxis-krause.de">info@kinderarztpraxis-krause.de</a>
+  </p>
+
+  <h2>Berufsbezeichnung &amp; Kammerzugehörigkeit</h2>
+  <p>
+    Fachärztin für Kinder- und Jugendmedizin<br>
+    Ärztekammer Berlin<br>
+    Friedrichstraße 16, 10969 Berlin
+  </p>
+
+  <h2>Aufsichtsbehörde</h2>
+  <p>Kassenärztliche Vereinigung Berlin, Masurenallee 6A, 14057 Berlin</p>
+
+  <h2>Berufsrechtliche Regelungen</h2>
+  <ul>
+    <li>Berufsordnung der Ärztekammer Berlin</li>
+    <li>Heilberufsgesetz des Landes Berlin</li>
+  </ul>
+
+  <h2>Haftungsausschluss</h2>
+  <p>Für Inhalte externer Links übernehmen wir keine Haftung. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+
+  <h2>Urheberrecht</h2>
+  <p>Alle Inhalte dieser Website sind urheberrechtlich geschützt. Vervielfältigung oder Verwendung nur mit ausdrücklicher Genehmigung.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Kinderarztpraxis Dr. Susann Krause</div>
+    <div class="footer-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
