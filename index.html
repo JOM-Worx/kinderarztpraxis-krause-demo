@@ -5,19 +5,19 @@
   <title>Kinderarztpraxis Dr. Susann Krause – Prenzlauer Berg</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kinderarztpraxis Dr. Susann Krause in Berlin-Prenzlauer Berg. Hausärztliche Versorgung von Kindern und Jugendlichen, Vorsorgeuntersuchungen und Impfungen.">
-  <!-- A: Favicon using practice logo -->
-  <link rel="icon" type="image/png" href="logo-kinderarztpraxis-krause.png">
+  <!-- Favicon using logo (PNG) + optional ICO -->
+  <link rel="icon" type="image/png" sizes="32x32" href="logo-kinderarztpraxis-krause.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <style>
-    /* ========= DESIGN TOKENS ========= */
     :root {
       --yellow: #f7b731;
       --yellow-soft: #fff5da;
-      --teal: #199a93;
+      --teal: #16807b; /* slightly darker for contrast */
       --teal-soft: #e1f2f1;
       --bg: #fdf8f1;
       --text: #27313a;
-      --muted: #6b7280;
+      --muted: #4b5563;
       --white: #ffffff;
 
       --radius-lg: 18px;
@@ -29,32 +29,22 @@
     *, *::before, *::after { box-sizing: border-box; }
 
     html {
-      scroll-behavior: smooth; /* B: smooth scrolling */
+      scroll-behavior: smooth;
     }
-
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-    }
-
-    body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background: radial-gradient(circle at top, #fffdfa, var(--bg) 45%, #f9f5ec 100%);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-
     a {
       color: var(--teal);
       text-decoration: none;
     }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* ========= LAYOUT ========= */
+    a:hover { text-decoration: underline; }
 
     .page {
       max-width: var(--max-width);
@@ -78,8 +68,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
+      gap: 0.75rem;
+      flex-wrap: nowrap;
     }
 
     .nav-left {
@@ -111,7 +101,6 @@
       display: flex;
       flex-wrap: nowrap;
       gap: 0.5rem;
-      margin-left: auto;
       font-size: 0.85rem;
       overflow-x: auto;
       padding-bottom: 0.25rem;
@@ -129,7 +118,7 @@
 
     .nav-links a:hover {
       background: var(--teal-soft);
-      border-color: rgba(25, 154, 147, 0.15);
+      border-color: rgba(22, 128, 123, 0.15);
       text-decoration: none;
     }
 
@@ -139,19 +128,58 @@
       font-weight: 600;
       border-radius: 999px;
       padding: 0.35rem 0.9rem;
-      box-shadow: 0 8px 20px rgba(25, 154, 147, 0.35);
+      box-shadow: 0 8px 20px rgba(22, 128, 123, 0.35);
       flex: 0 0 auto;
     }
+    .nav-cta:hover { background: #115b57; }
 
-    .nav-cta:hover {
-      background: #127872;
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      width: 38px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: #fff;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: #111827;
+      position: relative;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+    .nav-toggle span::before { top: -5px; }
+    .nav-toggle span::after { top: 5px; }
+
+    .nav-toggle.open span {
+      transform: rotate(45deg);
+    }
+    .nav-toggle.open span::before {
+      transform: rotate(-90deg);
+      top: 0;
+    }
+    .nav-toggle.open span::after {
+      opacity: 0;
     }
 
     main {
       padding-top: 1.2rem;
     }
-
-    /* ========= INFO STRIP (uses urgent-info.json) ========= */
 
     .info-strip {
       margin: 0 0 1.5rem;
@@ -166,18 +194,12 @@
       word-wrap: break-word;
       overflow-wrap: break-word;
     }
-
     .info-strip-icon {
       margin-top: 0.1rem;
       font-size: 1.1rem;
       flex-shrink: 0;
     }
-
-    .info-strip strong {
-      font-weight: 650;
-    }
-
-    /* ========= HERO ========= */
+    .info-strip strong { font-weight: 650; }
 
     .hero {
       display: grid;
@@ -186,19 +208,16 @@
       align-items: flex-start;
       margin-bottom: 2.2rem;
     }
-
     .hero-text h1 {
       font-size: clamp(1.7rem, 4vw, 2.2rem);
       line-height: 1.15;
       margin: 0 0 0.6rem;
     }
-
     .hero-text p.lead {
       margin: 0 0 1rem;
       color: var(--muted);
       font-size: 0.95rem;
     }
-
     .hero-highlight {
       display: inline-flex;
       align-items: center;
@@ -206,11 +225,10 @@
       padding: 0.18rem 0.6rem;
       border-radius: 999px;
       background: var(--teal-soft);
-      color: #075a57;
+      color: #064d48;
       font-size: 0.78rem;
       margin-bottom: 0.5rem;
     }
-
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -231,26 +249,18 @@
       text-decoration: none;
       white-space: nowrap;
     }
-
     .btn-primary {
       background: var(--teal);
       color: var(--white);
-      box-shadow: 0 10px 22px rgba(25, 154, 147, 0.35);
+      box-shadow: 0 10px 22px rgba(22, 128, 123, 0.35);
     }
-
-    .btn-primary:hover {
-      background: #127872;
-    }
-
+    .btn-primary:hover { background: #115b57; }
     .btn-ghost {
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.85);
       color: var(--teal);
-      border: 1px solid rgba(25, 154, 147, 0.25);
+      border: 1px solid rgba(22, 128, 123, 0.25);
     }
-
-    .btn-ghost:hover {
-      background: var(--teal-soft);
-    }
+    .btn-ghost:hover { background: var(--teal-soft); }
 
     .hero-meta {
       font-size: 0.8rem;
@@ -268,22 +278,17 @@
       border: 1px solid rgba(148, 163, 184, 0.35);
       font-size: 0.9rem;
     }
-
     .hero-card h2 {
       font-size: 1.02rem;
       margin: 0 0 0.4rem;
     }
-
-    .hero-card p {
-      margin: 0 0 0.6rem;
-    }
+    .hero-card p { margin: 0 0 0.6rem; }
 
     .tag-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
     }
-
     .tag {
       padding: 0.2rem 0.6rem;
       border-radius: 999px;
@@ -293,17 +298,14 @@
       color: #475569;
     }
 
-    /* ========= GENERIC SECTIONS ========= */
-
     section {
       margin-bottom: 2.3rem;
+      scroll-margin-top: 80px; /* avoid header overlap on anchor jump */
     }
-
     section h2 {
       font-size: 1.25rem;
       margin: 0 0 0.25rem;
     }
-
     .section-intro {
       margin: 0 0 0.9rem;
       font-size: 0.9rem;
@@ -315,7 +317,6 @@
       grid-template-columns: minmax(0, 1fr);
       gap: 1rem;
     }
-
     .card {
       background: var(--white);
       border-radius: var(--radius-md);
@@ -325,27 +326,19 @@
       font-size: 0.9rem;
       overflow: hidden;
     }
-
     .card h3 {
       font-size: 1rem;
       margin: 0 0 0.4rem;
     }
-
     .muted {
       font-size: 0.82rem;
       color: var(--muted);
     }
-
     .list-compact {
       margin: 0.2rem 0 0.3rem 1.1rem;
       padding: 0;
     }
-
-    .list-compact li {
-      margin-bottom: 0.2rem;
-    }
-
-    /* ========= TABLES ========= */
+    .list-compact li { margin-bottom: 0.2rem; }
 
     .hours-table {
       width: 100%;
@@ -353,24 +346,19 @@
       font-size: 0.9rem;
       margin-top: 0.3rem;
     }
-
     .hours-table th,
     .hours-table td {
       padding: 0.25rem 0.35rem;
       text-align: left;
       word-wrap: break-word;
     }
-
     .hours-table th {
       border-bottom: 1px solid #e2e8f0;
       font-weight: 600;
     }
-
     .hours-table tr:nth-child(even) td {
       background: #f9fafb;
     }
-
-    /* ========= TEAM / PRACTICE ========= */
 
     .pill {
       display: inline-flex;
@@ -378,24 +366,20 @@
       padding: 0.2rem 0.6rem;
       border-radius: 999px;
       background: var(--yellow-soft);
-      color: #a86600;
+      color: #7c4a00;
       font-size: 0.78rem;
       margin-bottom: 0.4rem;
     }
-
-    /* ========= CONTACT ========= */
 
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
       gap: 1rem;
     }
-
     .contact-details p {
       margin: 0.15rem 0;
       font-size: 0.9rem;
     }
-
     .contact-details a.tel {
       font-weight: 600;
       font-size: 1.02rem;
@@ -409,14 +393,36 @@
       min-height: 220px;
       background: #e5e7eb;
     }
-
     iframe {
       width: 100%;
       height: 100%;
       border: 0;
     }
 
-    /* ========= FOOTER ========= */
+    /* Photo placeholders */
+    .photo-placeholder {
+      border-radius: var(--radius-md);
+      background: repeating-linear-gradient(
+        135deg,
+        #e0f2fe,
+        #e0f2fe 10px,
+        #fef9c3 10px,
+        #fef9c3 20px
+      );
+      aspect-ratio: 4 / 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #1f2937;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 0.5rem;
+    }
+    .photo-placeholder span {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
 
     footer {
       border-top: 1px solid rgba(203, 213, 225, 0.9);
@@ -425,7 +431,6 @@
       color: var(--muted);
       background: #faf5eb;
     }
-
     .footer-inner {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -434,56 +439,62 @@
       flex-wrap: wrap;
       gap: 0.75rem;
     }
-
     .footer-links {
       display: flex;
       gap: 0.7rem;
       flex-wrap: wrap;
     }
 
-    /* ========= C: SCROLL ANIMATION (IntersectionObserver) ========= */
-
+    /* Fade-in animation */
     [data-animate] {
       opacity: 0;
       transform: translateY(12px);
-      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
     }
-
     [data-animate].in-view {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* ========= RESPONSIVE ========= */
-
+    /* Responsive tweaks */
     @media (min-width: 720px) {
       .hero {
         grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
         align-items: center;
       }
-
       .grid-2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
       .contact-grid {
         grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.05fr);
       }
     }
 
-    @media (max-width: 599px) {
+    @media (max-width: 720px) {
       .nav {
         padding-inline: 1rem;
       }
+      .logo-img { height: 38px; }
 
-      .logo-img {
-        height: 38px;
+      .nav-links {
+        display: none;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-cta {
+        margin-left: auto;
+      }
+      .nav-toggle {
+        display: flex;
       }
 
       .page {
         padding-inline: 1rem;
       }
-
       .hero-card {
         padding: 0.9rem 0.85rem 0.8rem;
       }
@@ -494,15 +505,18 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <!-- Official logo -->
       <img src="logo-kinderarztpraxis-krause.png"
            alt="Logo Kinderarztpraxis Dr. Susann Krause"
            class="logo-img">
-      <div class="logo-text" aria-label="Kinderarztpraxis Dr. Susann Krause">
+      <div class="logo-text">
         <span>kinderarztpraxis</span>
         <span>dr. susann krause</span>
       </div>
     </div>
+
+    <button class="nav-toggle" type="button" aria-label="Menü öffnen oder schließen">
+      <span></span>
+    </button>
 
     <nav class="nav-links" aria-label="Hauptnavigation">
       <a href="#zeiten">Sprechzeiten</a>
@@ -510,7 +524,8 @@
       <a href="#team">Team</a>
       <a href="#praxis">Praxis</a>
       <a href="#kontakt">Kontakt</a>
-      <a class="nav-cta" href="https://www.doctolib.de" target="_blank" rel="noopener">
+      <a class="nav-cta" href="https://www.doctolib.de" target="_blank" rel="noopener"
+         aria-label="Termin über Doctolib buchen">
         Termin buchen
       </a>
     </nav>
@@ -518,8 +533,7 @@
 </header>
 
 <div class="page">
-
-  <!-- C: URGENT INFO is filled from urgent-info.json and hidden by default -->
+  <!-- Urgent info, filled from urgent-info.json -->
   <section id="urgent-info" class="info-strip" aria-label="Aktuelle Hinweise" hidden>
     <div class="info-strip-icon" aria-hidden="true">⚠️</div>
     <div class="info-strip-content"></div>
@@ -538,7 +552,8 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://www.doctolib.de" target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="https://www.doctolib.de" target="_blank" rel="noopener"
+             aria-label="Online Termin über Doctolib buchen">
             Online Termin buchen ↗
           </a>
           <a class="btn btn-ghost" href="#zeiten">Sprechzeiten &amp; Kontakt</a>
@@ -666,8 +681,11 @@
             Unser Praxis-Team unterstützt Sie bei der Terminvergabe, beantwortet organisatorische Fragen
             und sorgt für einen reibungslosen Ablauf in der Sprechstunde.
           </p>
+          <div class="photo-placeholder" aria-hidden="true">
+            Teamfoto<br><span>Platzhalter – wird ergänzt</span>
+          </div>
           <p class="muted">
-            Namen und Fotos des Teams können hier bei Bedarf ergänzt werden.
+            Ein Foto des Teams kann hier später ergänzt werden.
           </p>
         </div>
       </div>
@@ -691,13 +709,12 @@
           </ul>
         </div>
         <div class="card" data-animate>
-          <h3>Anfahrt</h3>
-          <p>
-            Lychener Str. 56<br>
-            10437 Berlin – Prenzlauer Berg
-          </p>
+          <h3>Praxisräume</h3>
+          <div class="photo-placeholder" aria-hidden="true">
+            Praxisräume<br><span>Platzhalter – Foto folgt</span>
+          </div>
           <p class="muted">
-            Öffentliche Verkehrsmittel: z.B. U2 (Eberswalder Straße), M10, M1.
+            Fotos der Praxisräume können hier ergänzt werden, sobald diese vorliegen.
           </p>
         </div>
       </div>
@@ -724,7 +741,8 @@
             <a href="mailto:info@kinderarztpraxis-krause.de">info@kinderarztpraxis-krause.de</a>
           </p>
           <p>
-            <a class="btn btn-primary" href="https://www.doctolib.de" target="_blank" rel="noopener">
+            <a class="btn btn-primary" href="https://www.doctolib.de" target="_blank" rel="noopener"
+               aria-label="Termin online über Doctolib buchen">
               Termin online buchen
             </a>
           </p>
@@ -735,10 +753,12 @@
         </div>
 
         <div class="map-embed" aria-label="Praxisstandort auf Karte" data-animate>
-          <!-- Echten Google-Maps-Embed-Code kann man hier einfügen -->
-          <!--
-          <iframe src="..."></iframe>
-          -->
+          <iframe
+            title="Karte: Kinderarztpraxis Dr. Susann Krause"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Lychener%20Str.%2056%2010437%20Berlin&output=embed">
+          </iframe>
         </div>
       </div>
     </section>
@@ -759,7 +779,17 @@
   // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // C: Animate sections on scroll
+  // Mobile nav toggle
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", () => {
+      navToggle.classList.toggle("open");
+      navLinks.classList.toggle("open");
+    });
+  }
+
+  // Fade-in on scroll
   const animateEls = document.querySelectorAll("[data-animate]");
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {
@@ -770,14 +800,12 @@
         }
       });
     }, { threshold: 0.12 });
-
     animateEls.forEach((el) => observer.observe(el));
   } else {
-    // Fallback: show all
     animateEls.forEach((el) => el.classList.add("in-view"));
   }
 
-  // C: Load urgent info from urgent-info.json
+  // Load urgent info from JSON
   (function loadUrgentInfo() {
     const section = document.getElementById("urgent-info");
     if (!section) return;
@@ -786,14 +814,12 @@
       .then((resp) => resp.ok ? resp.json() : null)
       .then((data) => {
         if (!data || data.active === false || !data.message) return;
-
         const iconEl = section.querySelector(".info-strip-icon");
         const contentEl = section.querySelector(".info-strip-content");
 
         iconEl.textContent = data.icon || "⚠️";
 
         const title = data.title || "Aktuell";
-        // message can contain simple text – we escape angle brackets to prevent HTML
         const safeMessage = String(data.message)
           .replace(/</g, "&lt;")
           .replace(/>/g, "&gt;");
@@ -801,9 +827,7 @@
         contentEl.innerHTML = `<p><strong>${title}:</strong> ${safeMessage}</p>`;
         section.hidden = false;
       })
-      .catch(() => {
-        // silently ignore if JSON not reachable
-      });
+      .catch(() => {});
   })();
 </script>
 </body>

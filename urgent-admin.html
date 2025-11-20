@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Aktuelle Hinweise verwalten – Kinderarztpraxis Dr. Susann Krause</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="logo-kinderarztpraxis-krause.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    :root {
+      --yellow: #f7b731;
+      --yellow-soft: #fff5da;
+      --teal: #16807b;
+      --bg: #faf5eb;
+      --text: #27313a;
+      --muted: #4b5563;
+      --white: #ffffff;
+      --radius-md: 12px;
+      --max-width: 720px;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid rgba(148,163,184,0.3);
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: fit-content;
+    }
+    .logo img { height: 40px; }
+    .logo-text {
+      color: var(--yellow);
+      font-weight: 600;
+      text-transform: lowercase;
+      font-size: 0.95rem;
+      line-height: 1.18;
+    }
+    main {
+      max-width: var(--max-width);
+      margin: 2rem auto 2.5rem;
+      padding: 0 1.25rem;
+    }
+    h1 { font-size: 1.6rem; margin-bottom: 0.75rem; }
+    p { font-size: 0.95rem; line-height: 1.55; }
+    .muted { color: var(--muted); font-size: 0.85rem; }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1rem 1rem 1.1rem;
+      box-shadow: 0 10px 26px rgba(15,23,42,0.12);
+      border: 1px solid rgba(203,213,225,0.8);
+      margin-bottom: 1.25rem;
+    }
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+    input[type="text"], textarea, input[type="password"] {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      padding: 0.4rem 0.55rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      box-sizing: border-box;
+    }
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    .field {
+      margin-bottom: 0.75rem;
+    }
+    .row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .row > .field {
+      flex: 1 1 0;
+      margin-bottom: 0;
+    }
+    .switch-row {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+    }
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-right: 0.5rem;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: #115b57; }
+    .btn-secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: 8px;
+      padding: 0.8rem;
+      font-size: 0.8rem;
+      overflow-x: auto;
+    }
+    .info-strip-preview {
+      margin-top: 0.75rem;
+      padding: 0.7rem 0.8rem;
+      border-radius: 10px;
+      background: #fff6d7;
+      border: 1px solid #f4ca64;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .info-strip-preview strong {
+      font-weight: 650;
+    }
+    .password-screen {
+      max-width: 460px;
+      margin: 3rem auto 0;
+    }
+    .hint {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+    footer {
+      padding: 1.2rem 1.25rem 1.8rem;
+      border-top: 1px solid rgba(148,163,184,0.3);
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: var(--white);
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 600px) {
+      main { padding: 0 1rem; }
+      header { padding-inline: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo">
+    <img src="logo-kinderarztpraxis-krause.png" alt="Logo Kinderarztpraxis Dr. Susann Krause">
+    <div class="logo-text">
+      <span>kinderarztpraxis</span><br>
+      <span>dr. susann krause</span>
+    </div>
+  </a>
+</header>
+
+<main>
+  <div id="password-view" class="password-screen">
+    <div class="card">
+      <h1>Aktuellen Hinweis bearbeiten</h1>
+      <p class="muted">
+        Diese Seite hilft, den gelben Hinweis oben auf der Startseite zu bearbeiten,
+        ohne sich mit Technik zu beschäftigen.
+      </p>
+      <div class="field">
+        <label for="admin-password">Passwort</label>
+        <input type="password" id="admin-password" autocomplete="current-password">
+        <div class="hint">Bitte das interne Praxis-Passwort verwenden.</div>
+      </div>
+      <button class="btn btn-primary" id="login-btn" type="button">Weiter</button>
+    </div>
+  </div>
+
+  <div id="admin-view" style="display:none;">
+    <h1>Aktuellen Hinweis aktualisieren</h1>
+    <p class="muted">
+      1) Formular ausfüllen → 2) Auf „JSON aktualisieren“ klicken → 3) Text kopieren und an die zuständige Person senden (z.&nbsp;B. Jan) oder in <code>urgent-info.json</code> einfügen.
+    </p>
+
+    <div class="card">
+      <div class="switch-row">
+        <input type="checkbox" id="field-active" checked>
+        <label for="field-active">Hinweis ist aktiv (zeigt den gelben Balken an)</label>
+      </div>
+
+      <div class="field">
+        <label for="field-title">Überschrift</label>
+        <input type="text" id="field-title" value="Aktuell">
+      </div>
+
+      <div class="field">
+        <label for="field-message">Hinweistext</label>
+        <textarea id="field-message">Am Freitag, 15. November bleibt die Praxis nachmittags geschlossen. In dringenden Notfällen wenden Sie sich bitte an den kassenärztlichen Bereitschaftsdienst 116 117.</textarea>
+      </div>
+
+      <div class="field">
+        <label for="field-icon">Symbol (z.&nbsp;B. ⚠️, 💉, 🌞)</label>
+        <input type="text" id="field-icon" value="⚠️">
+      </div>
+
+      <button class="btn btn-primary" type="button" id="update-json-btn">JSON aktualisieren</button>
+    </div>
+
+    <div class="card">
+      <h2>Schritt 2: JSON kopieren</h2>
+      <p class="muted">
+        Den folgenden Text komplett kopieren und in der Datei <code>urgent-info.json</code> im GitHub-Webeditor ersetzen
+        oder an Ihre technische Ansprechperson senden.
+      </p>
+      <pre id="json-output">{}</pre>
+      <button class="btn btn-secondary" type="button" id="copy-json-btn">JSON in Zwischenablage kopieren</button>
+
+      <div class="info-strip-preview" id="preview-strip">
+        <span id="preview-icon">⚠️</span>
+        <span id="preview-text"><strong>Aktuell:</strong> Vorschau des Hinweistextes erscheint hier.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Kurzanleitung für das Team</h2>
+      <ol class="muted">
+        <li>Auf dieser Seite einloggen.</li>
+        <li>„Hinweis ist aktiv“ anhaken oder entfernen.</li>
+        <li>Überschrift und Hinweistext anpassen.</li>
+        <li>Auf <strong>„JSON aktualisieren“</strong> klicken.</li>
+        <li>Auf <strong>„JSON in Zwischenablage kopieren“</strong> klicken.</li>
+        <li>Entweder:
+          <ul>
+            <li>den Text an die Technik-Ansprechperson senden, oder</li>
+            <li>in GitHub die Datei <code>urgent-info.json</code> öffnen und den Inhalt dort ersetzen.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Kinderarztpraxis Dr. Susann Krause</div>
+    <div><a href="index.html">Zurück zur Startseite</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const PASSWORD = "praxis2024"; // <- hier einfaches internes Passwort anpassen
+
+  const passwordView = document.getElementById("password-view");
+  const adminView = document.getElementById("admin-view");
+  const loginBtn = document.getElementById("login-btn");
+  const passwordInput = document.getElementById("admin-password");
+
+  loginBtn.addEventListener("click", () => {
+    if (passwordInput.value === PASSWORD) {
+      passwordView.style.display = "none";
+      adminView.style.display = "block";
+      updateJsonOutput();
+    } else {
+      alert("Passwort stimmt nicht.");
+      passwordInput.focus();
+    }
+  });
+
+  function buildJson() {
+    const active = document.getElementById("field-active").checked;
+    const title = document.getElementById("field-title").value || "Aktuell";
+    const message = document.getElementById("field-message").value || "";
+    const icon = document.getElementById("field-icon").value || "⚠️";
+
+    return {
+      active: active,
+      title: title,
+      message: message,
+      icon: icon
+    };
+  }
+
+  function updateJsonOutput() {
+    const jsonData = buildJson();
+    const jsonString = JSON.stringify(jsonData, null, 2);
+    document.getElementById("json-output").textContent = jsonString;
+
+    const preview = document.getElementById("preview-strip");
+    const previewIcon = document.getElementById("preview-icon");
+    const previewText = document.getElementById("preview-text");
+
+    if (jsonData.active && jsonData.message.trim() !== "") {
+      preview.style.display = "block";
+      previewIcon.textContent = jsonData.icon || "⚠️";
+      previewText.innerHTML = "<strong>" + (jsonData.title || "Aktuell") + ":</strong> " +
+        jsonData.message;
+    } else {
+      preview.style.display = "none";
+    }
+  }
+
+  document.getElementById("update-json-btn").addEventListener("click", updateJsonOutput);
+
+  document.getElementById("copy-json-btn").addEventListener("click", () => {
+    const text = document.getElementById("json-output").textContent;
+    navigator.clipboard.writeText(text).then(
+      () => alert("JSON wurde in die Zwischenablage kopiert."),
+      () => alert("Kopieren nicht möglich. Bitte Text manuell markieren und kopieren.")
+    );
+  });
+</script>
+</body>
+</html>
